@@ -32,6 +32,8 @@
 
     }
 
+    /* Main Card styling/spacing */
+
     .Card {
       /* margin: auto; */
       box-sizing: border-box;
@@ -98,6 +100,8 @@
       color: #9eafc2;
     }
 
+    /* Share Article Section */
+
     .Card__share {
       display: flex;
       align-items: center;
@@ -106,7 +110,52 @@
     .Card__icon {
       height: 20px;
       width: 20px;
+      padding: 8px;
+      border-radius: 50%;
+      color: #ffffff;
+      background-color: #6d7f97;
+      cursor: pointer;
     }
+
+    /* Pop up when share icon is clicked */
+
+    .Card__sharepopup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 15px;
+      background-color: #48556a;
+      color: #fff;
+      border-radius: 8px;
+
+      /* display: none; */
+      position: relative;
+      left: 130px;
+      bottom: 60px;
+    }
+
+    .Card__sharepopup_text {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #6d7f97;
+    }
+
+    .Card__sharepopup_icon {
+      height: 20px;
+      width: 20px;
+      padding: 0 6.5px;
+    }
+
+    .onClickSquare {
+      position: absolute;
+      top: 45px;
+      height: 20px;
+      width: 20px;
+      background-color: #48556a;
+      transform: rotate(45deg);
+    }
+
+    /* Media Queries */
 
     @media screen and (max-width: 700px) {
       .Card {
@@ -124,9 +173,21 @@
         padding-right: 30px;
         margin-top: 10px;
       }
-    }
 
-    
+      .Card__profile {
+        
+      }
+
+      
+
+      .Card__sharepopup {
+        flex: 1 1 100%;
+
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    }
 
   </style>
 </head>
@@ -146,13 +207,33 @@
         it felt slightly bare and uninviting. I’ve got some simple tips 
         to help you make any room feel complete.
       </p>
+      <div class="Card__sharepopup">
+        <div>
+          <span class="Card__sharepopup_text">
+            Share
+          </span>
+          <svg class="Card__sharepopup_icon"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+          <svg class="Card__sharepopup_icon"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+          <svg class="Card__sharepopup_icon"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+        </div>
+        <div class='onClickSquare'>
+        </div>
+        
+      </div>
       <div class="Card__profile">
         <div class="Card__profileinfo">
           <span class="Card__name">Michelle Appleton</span>
           <span class="Card__date">28 Jun 2020</span>
         </div>
+        
         <span class="Card__share">
-          <svg class="Card__icon"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="Card__icon js-open-share"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
           </svg>
         </span>
