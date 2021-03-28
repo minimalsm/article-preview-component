@@ -65,6 +65,7 @@
       flex: 0 1 450px;
       padding: 20px 40px;
       margin-top: 10px;
+      position: relative;
     }
 
     .Card__text {
@@ -76,6 +77,7 @@
       font-size: 20px;
       font-weight: 700;
       color: #48556a;
+      display: inline-block;
     }
 
     /* User Profile on Card */
@@ -88,7 +90,20 @@
 
     .Card__profileinfo {
       display: flex;
-      flex-direction: column; 
+      flex-direction: row; 
+    }
+
+    .Card__details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .Card__profileinfo img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      padding-right: 15px;
     }
 
     .Card__name {
@@ -127,11 +142,16 @@
       background-color: #48556a;
       color: #fff;
       border-radius: 8px;
+      /* width: 0;
+      height: 0; */
 
       /* display: none; */
-      position: relative;
-      left: 130px;
-      bottom: 60px;
+      position: absolute;
+      left: 30px;
+      bottom: 100px;
+  
+
+      /* display: none; */
     }
 
     .Card__sharepopup_text {
@@ -167,11 +187,23 @@
         flex: 1 1 auto;
       }
 
+      .Card__image img {
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0px;
+      }
+
       .Card__content {
         flex: 1 1 auto;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: 10px;
+      }
+
+      .Card__title,
+      .Card__text,
+      .Card__profile {
         padding-left: 30px;
         padding-right: 30px;
-        margin-top: 10px;
       }
 
       .Card__profile {
@@ -181,12 +213,13 @@
       
 
       .Card__sharepopup {
-        flex: 1 1 100%;
-
-        left: 0;
-        bottom: 0;
-        width: 100%;
+        
+        
       }
+
+      .onClickSquare {
+      display: none;
+    }
     }
 
   </style>
@@ -207,7 +240,27 @@
         it felt slightly bare and uninviting. I’ve got some simple tips 
         to help you make any room feel complete.
       </p>
+
+      
+
+      <div class="Card__profile">
+        <div class="Card__profileinfo">
+          <img src='./images/avatar-michelle.jpg' alt='Michelle Appleton'>
+          <div class='Card__details'>
+            <span class="Card__name">Michelle Appleton</span>
+            <span class="Card__date">28 Jun 2020</span>
+          </div>
+        </div>
+        
+        <span class="Card__share">
+          <svg class="Card__icon js-open-share"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+        </span>
+      </div>
+
       <div class="Card__sharepopup">
+        
         <div>
           <span class="Card__sharepopup_text">
             Share
@@ -222,22 +275,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
           </svg>
         </div>
+
         <div class='onClickSquare'>
+
         </div>
         
       </div>
-      <div class="Card__profile">
-        <div class="Card__profileinfo">
-          <span class="Card__name">Michelle Appleton</span>
-          <span class="Card__date">28 Jun 2020</span>
-        </div>
-        
-        <span class="Card__share">
-          <svg class="Card__icon js-open-share"xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-          </svg>
-        </span>
-      </div>
+      
     </div>
   </article>
   
@@ -245,5 +289,20 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
-</body>
+
+  <script>
+    document.querySelector('.js-open-share').addEventListener('click', () => {
+      const el = document.querySelector('.Card__sharepopup')
+
+      if (el.classList.contains('active'))
+        {
+          el.classList.remove('active')
+          el.style.display = 'none'
+        } else {
+          el.style.display = 'flex'
+          el.classList.add('active')
+        }
+    })
+  </script>
+  </body>
 </html>
